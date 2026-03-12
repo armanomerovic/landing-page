@@ -88,12 +88,7 @@ body {
   margin: 0;
   color: var(--sea-ink);
   font-family: var(--font-sans);
-  background-color: var(--bg-base);
-  background:
-    radial-gradient(1100px 620px at -8% -10%, var(--hero-a), transparent 58%),
-    radial-gradient(1050px 620px at 112% -12%, var(--hero-b), transparent 62%),
-    radial-gradient(720px 380px at 50% 115%, rgba(79, 184, 178, 0.1), transparent 68%),
-    linear-gradient(180deg, color-mix(in oklab, var(--sand) 68%, white) 0%, var(--foam) 44%, var(--bg-base) 100%);
+  background: var(--bg-base) radial-gradient(1100px 620px at -8% -10%, var(--hero-a), transparent 58%) radial-gradient(1050px 620px at 112% -12%, var(--hero-b), transparent 62%) radial-gradient(720px 380px at 50% 115%, rgba(79, 184, 178, 0.1), transparent 68%) linear-gradient(180deg, color-mix(in oklab, var(--sand) 68%, white) 0%, var(--foam) 44%, var(--bg-base) 100%);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -227,11 +222,6 @@ a {
   color: var(--sea-ink);
 }
 
-.nav-link:hover::after,
-.nav-link.is-active::after {
-  transform: scaleX(1);
-}
-
 @media (max-width: 640px) {
   .nav-link::after {
     bottom: -4px;
@@ -255,5 +245,61 @@ a {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.cta-button {
+  border: 1px solid color-mix(in oklab, var(--lagoon-deep) 44%, transparent);
+  background: linear-gradient(120deg, color-mix(in oklab, var(--lagoon) 78%, white 22%), var(--lagoon-deep));
+  color: white;
+  box-shadow: 0 12px 24px rgba(50, 143, 151, 0.28);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 28px rgba(50, 143, 151, 0.34);
+}
+
+.skill-card,
+.project-card {
+  border: 1px solid var(--line);
+}
+
+.project-link {
+  border: 1px solid color-mix(in oklab, var(--lagoon-deep) 30%, var(--line));
+  background: color-mix(in oklab, var(--surface-strong) 90%, white 10%);
+  color: var(--sea-ink);
+  font-weight: 600;
+}
+
+.project-link:hover {
+  transform: translateY(-1px);
+  background: color-mix(in oklab, var(--link-bg-hover) 88%, white 12%);
+}
+
+.form-control {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  padding: 0.72rem 0.9rem;
+  font: inherit;
+  color: var(--sea-ink);
+  background: color-mix(in oklab, var(--surface-strong) 94%, white 6%);
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.form-control::placeholder {
+  color: color-mix(in oklab, var(--sea-ink-soft) 78%, white 22%);
+}
+
+.form-control:focus {
+  border-color: color-mix(in oklab, var(--lagoon-deep) 72%, var(--line));
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--lagoon) 30%, transparent);
+}
+
+@media (max-width: 640px) {
+  .page-wrap {
+    width: min(1080px, calc(100% - 1.25rem));
   }
 }
